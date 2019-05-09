@@ -3,6 +3,8 @@ var titulo 		= document.getElementById('titulo-pregunta');
 var img 		= document.getElementById('img');
 var resultado 	= document.getElementById('resultado');
 var boton 		= document.getElementById('boton1');
+var aciertos  	= document.getElementById('aciertos');
+var info		= document.getElementById('info');
 var opciones 	= document.getElementsByName('option');
 var radio_res 	= document.getElementsByName('exampleRadios'); 
 
@@ -128,5 +130,14 @@ function calificar() {
 	console.log(cont)
 
 	resultado.innerHTML = "Tu calificacion es de: "+res+" Puntos";
+	aciertos.innerHTML = "Aciertos: "+cont+" de 5";
+	var infoTmp = "";
+	for (var i = 0; i < 5; i++){
+		infoTmp += (i+1)+". "+preguntas[i].pregunta+"<br>"
+		+"Tu respuesta: "+preguntas[i].opciones[(preguntas[i].seleccion) - 1]
+		+"<br> Respuesta: "+preguntas[i].opciones[(preguntas[i].res) - 1]
+		+"<br><br>";
+	}
+	info.innerHTML = infoTmp;
 
 }
